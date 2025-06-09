@@ -5,7 +5,7 @@ function App() {
 
   const testDownloadSpeed = async () => {
     const fileSizeBytes = 50 * 1024 * 1024; // 50MB
-    const url = `/testfile-50mb.bin?_=${Date.now()}`;
+    const url = `/file.mp3?_=${Date.now()}`;
     const startTime = performance.now();
 
     try {
@@ -20,7 +20,7 @@ function App() {
       const endTime = performance.now();
       const durationSeconds = (endTime - startTime) / 1000;
       const bitsLoaded = received * 8;
-      const speed = bitsLoaded / durationSeconds / 1_000_000; // Mbps
+      const speed = bitsLoaded / durationSeconds / 1_000; // kbps
       setSpeedMbps(speed.toFixed(2));
     } catch (err) {
       console.error("Speed test error:", err);
@@ -37,7 +37,7 @@ function App() {
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>Internet Speed Meter</h1>
-      <p>{speedMbps} Mbps</p>
+      <p>{speedMbps} Kbps</p>
     </div>
   );
 }
