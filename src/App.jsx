@@ -5,7 +5,7 @@ function App() {
 
   const testDownloadSpeed = async () => {
     const fileSizeBytes = 50 * 1024 * 1024; // 50MB
-    const url = "https://internet-speed-monitor-six.vercel.app/testfile-50mb.bin" + Date.now(); // prevent caching
+    const url = `/testfile-50mb.bin?_=${Date.now()}`;
     const startTime = performance.now();
 
     try {
